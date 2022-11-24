@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Drinks4Us.Views.FridgeItems.DetailsFridgeItemModal">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Show Details of Item" FontSize="Title" Margin="10"
+                   HorizontalOptions="Center" VerticalOptions="Center" />
+
+            <StackLayout x:Name="FieldsStackLayout" Margin="24" Padding="24" Spacing="24"
+                         HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Column="0" Text="Product Name" FontAttributes="Bold" HorizontalTextAlignment="Start" />
+                    <Label Grid.Column="1" Text="{Binding Name}" FontAttributes="Bold" HorizontalTextAlignment="End" />
+                </Grid>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Column="0" Text="Product Amount" FontAttributes="Bold" HorizontalTextAlignment="Start" />
+                    <Label Grid.Column="1" Text="{Binding Quantity}" FontAttributes="Bold"
+                           HorizontalTextAlignment="End" />
+                </Grid>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Column="0" Text="Product Purchase Date" FontAttributes="Bold" HorizontalTextAlignment="Start" />
+                    <Label Grid.Column="1" Text="{Binding PurchaseDate}" FontAttributes="Bold"
+                           HorizontalTextAlignment="End" />
+                </Grid>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Column="0" Text="Product Expire Date" FontAttributes="Bold" HorizontalTextAlignment="Start" />
+                    <Label Grid.Column="1" Text="{Binding ExpireDate}" FontAttributes="Bold"
+                           HorizontalTextAlignment="End" />
+                </Grid>
+            </StackLayout>
+
+            <StackLayout HorizontalOptions="End" VerticalOptions="End" Margin="00,0,10,10">
+                <StackLayout Orientation="Horizontal">
+                    <Button x:Name="BackButton" FontAttributes="Bold" BackgroundColor="#1580D8"
+                            TextColor="White" Text="Back"
+                            Clicked="BackButton_OnClicked" />
+                    <Button x:Name="EditItemButton" FontAttributes="Bold" BackgroundColor="Orange"
+                            TextColor="White" Text="Edit"
+                            Clicked="EditItemButton_OnClicked" />
+                    <Button x:Name="DeleteItemButton" FontAttributes="Bold" BackgroundColor="Red" 
+                            TextColor="White" Text="Delete"
+                            Clicked="DeleteItemButton_OnClicked" />
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

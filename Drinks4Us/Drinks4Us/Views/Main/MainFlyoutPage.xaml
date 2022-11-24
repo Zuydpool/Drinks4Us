@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<FlyoutPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Drinks4Us.Views.Main.MainFlyoutPage"
+             xmlns:pages="clr-namespace:Drinks4Us.Views.Main"
+             xmlns:pages1="clr-namespace:Drinks4Us.Views.Pages;assembly=Drinks4Us"
+             Visual="Material"
+             NavigationPage.HasNavigationBar="False">
+  <FlyoutPage.Flyout>
+    <pages:MainFlyoutPageFlyout x:Name="FlyoutPage" />
+  </FlyoutPage.Flyout>
+  <FlyoutPage.Detail>
+    <NavigationPage>
+      <x:Arguments>
+        <pages1:HomePage />
+      </x:Arguments>
+    </NavigationPage>
+  </FlyoutPage.Detail>
+
+    <FlyoutPage.ToolbarItems>
+        <ToolbarItem x:Name="ToolbarWeatherIcon" Order="Primary" Priority="0" />
+        <ToolbarItem x:Name="ToolbarWeatherTemperature" Order="Primary" Priority="1" />
+    </FlyoutPage.ToolbarItems>
+</FlyoutPage>
