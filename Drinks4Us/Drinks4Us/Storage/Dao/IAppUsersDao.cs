@@ -5,7 +5,7 @@ namespace Drinks4Us.Storage.Dao
 {
     public interface IAppUsersDao : IDao<AppUser>
     {
-        Task<AppUser> GetByEmail(string email);
+        Task<AppUser?> GetByEmail(string email);
 
         Task<bool> CheckIfAccountExists(string email);
     }

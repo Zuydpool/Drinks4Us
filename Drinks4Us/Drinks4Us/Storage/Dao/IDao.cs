@@ -5,11 +5,11 @@ namespace Drinks4Us.Storage.Dao
 {
     public interface IDao<T>
     {
-        Task<T> GetById(string id);
+        Task<T?> GetById(int id);
 
         Task<ICollection<T>> GetAll();
 
-        Task<bool> Delete(string id);
+        Task<bool> Delete(int id);
 
         Task<T> Add(T entry);
 

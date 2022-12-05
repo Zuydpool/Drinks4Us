@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:behaviors="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="Drinks4Us.Views.FridgeItems.EditFridgeItemPage"
+             Title="Edit Fridge Item">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <StackLayout x:Name="FieldsStackLayout" Margin="24" Padding="24" Spacing="24"
+                         HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+                <StackLayout>
+                    <Label Text="Product Name" TextColor="White" />
+                    <Entry x:Name="ProductNameEntry" Placeholder="Product Name" Text="{Binding Name}" TextColor="White" PlaceholderColor="White">
+                        <Entry.Behaviors>
+                            <behaviors:MultiValidationBehavior x:Name="ProductNameValidator" InvalidStyle="{StaticResource InvalidEntryStyle}">
+                                <behaviors:RequiredStringValidationBehavior
+                                    Flags="ValidateOnValueChanging"
+                                    RequiredString="{Binding Source={x:Reference ProductNameEntry},Path=Text}"/>
+                                <behaviors:TextValidationBehavior MinimumLength="1" DecorationFlags="Trim" />
+                            </behaviors:MultiValidationBehavior>
+                        </Entry.Behaviors>
+                    </Entry>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text="Product Quantity" TextColor="White" />
+                    <Entry x:Name="ProductQuantityEntry" Placeholder="Product Quantity" Keyboard="Numeric"
+                           Text="{Binding Quantity}" TextColor="White" PlaceholderColor="White">
+                        <Entry.Behaviors>
+                            <behaviors:NumericValidationBehavior
+                                x:Name="ProductQuantityValidator"
+                                InvalidStyle="{StaticResource InvalidEntryStyle}"
+                                MinimumValue="1"
+                                MaximumDecimalPlaces="0" />
+                        </Entry.Behaviors>
+                    </Entry>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text="Product Purchase Date" TextColor="White" />
+                    <DatePicker x:Name="ProductPurchaseDate" Format="dd-MM-yyyy" Date="{Binding PurchaseDate}" TextColor="White" />
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text="Product Expire Date" TextColor="White" />
+                    <DatePicker x:Name="ProductExpireDate" Format="dd-MM-yyyy" Date="{Binding ExpireDate}" TextColor="White" />
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text="Product Image Url" TextColor="White" />
+                    <Entry x:Name="ProductImageUrlEntry" Placeholder="Product Image Url" Text="{Binding ImageUrl}" TextColor="White" PlaceholderColor="White" />
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout HorizontalOptions="End" VerticalOptions="End" Margin="00,0,10,10">
+                <StackLayout Orientation="Horizontal">
+                    <Button x:Name="CancelButton" FontAttributes="Bold" Background="#34a8eb" TextColor="White"
+                            Text="Cancel" Clicked="CancelButton_OnClicked" />
+                    <Button x:Name="SaveItemButton" Style="{StaticResource SaveButton}" Text="Save"
+                            Clicked="SaveItemButton_OnClicked" />
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

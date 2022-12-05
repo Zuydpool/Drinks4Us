@@ -20,7 +20,7 @@ namespace Drinks4Us.Views.Users
 
         private async void CancelButton_OnClicked(object sender, EventArgs e)
         {
-            await Navigation.PopModalAsync();
+            await Navigation.PopAsync();
         }
 
         private async void SaveUserButton_OnClicked(object sender, EventArgs e)
@@ -33,7 +33,7 @@ namespace Drinks4Us.Views.Users
 
             await App.GetInstance().Storage.Dao.AppUsersDao.Update(_appUser);
             await DisplayAlert("Success", "Successfully updated user!", "Ok!");
-            await Navigation.PopModalAsync();
+            await Navigation.PopAsync();
         }
     }
 }

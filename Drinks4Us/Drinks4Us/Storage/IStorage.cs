@@ -1,4 +1,5 @@
-﻿using Drinks4Us.Storage.Dao;
+﻿using Drinks4Us.Models;
+using Drinks4Us.Storage.Dao;
 
 namespace Drinks4Us.Storage
 {

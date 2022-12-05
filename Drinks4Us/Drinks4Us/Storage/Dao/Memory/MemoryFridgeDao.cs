@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Drinks4Us.Models;
 
@@ -8,20 +9,9 @@ namespace Drinks4Us.Storage.Dao.Memory
 {
     public class MemoryFridgeDao : IFridgeDao
     {
-        private readonly IDictionary<string, Fridge> _items = new ConcurrentDictionary<string, Fridge>();
+        private readonly IDictionary<int, Fridge> _items = new ConcurrentDictionary<int, Fridge>();
 
-        public MemoryFridgeDao()
-        {
-            var id = Guid.NewGuid().ToString();
-            _items.Add(id, new Fridge()
-            {
-                Id = id,
-                Name = "Samsung Big Americans Koelkast jonguh",
-                ImageUrl = "https://dehanzewitgoed.nl/wp-content/uploads/2020/10/Samsung-RS68N8321S9-Amerikaanse-koelkast.jpg"
-            });
-        }
-
-        public Task<Fridge> GetById(string id)
+        public Task<Fridge> GetById(int id)
         {
             return Task.Factory.StartNew(() => _items[id]);
         }
@@ -31,7 +21,7 @@ namespace Drinks4Us.Storage.Dao.Memory
             return Task.Factory.StartNew(() => _items.Values);
         }
 
-        public Task<bool> Delete(string id)
+        public Task<bool> Delete(int id)
         {
             return Task.Factory.StartNew(() => _items.Remove(id));
         }

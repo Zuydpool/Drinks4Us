@@ -2,7 +2,8 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Drinks4Us.Views.Account;
-using Drinks4Us.Views.FridgeItems;
+using Drinks4Us.Views.Fridges;
+using Drinks4Us.Views.Log;
 using Drinks4Us.Views.Pages;
 using Drinks4Us.Views.Users;
 using Xamarin.Forms;
@@ -49,24 +50,40 @@ namespace Drinks4Us.Views.Main
                     },
                     new MainFlyoutPageFlyoutMenuItem
                     {
-                        Id = 2, Title = "FridgeItems", TargetType = typeof(FridgeItemsPage), IconSource = 
-                            (currentTheme == OSAppTheme.Dark ? "outline_fastfood_white_24dp.png" : "outline_fastfood_black_24dp.png")
+                        Id = 2, Title = "Fridges", TargetType = typeof(FridgesPage), IconSource =
+                            (currentTheme == OSAppTheme.Dark
+                                ? "outline_fastfood_white_24dp.png"
+                                : "outline_fastfood_black_24dp.png")
                     },
                     new MainFlyoutPageFlyoutMenuItem
                     {
                         Id = 3, Title = "Login", TargetType = typeof(LoginPage), IconSource =
-                            (currentTheme == OSAppTheme.Dark ? "outline_account_circle_white_24dp.png" : "outline_account_circle_black_24dp.png")
+                            (currentTheme == OSAppTheme.Dark
+                                ? "outline_account_circle_white_24dp.png"
+                                : "outline_account_circle_black_24dp.png")
                     },
                     new MainFlyoutPageFlyoutMenuItem
                     {
                         Id = 4, Title = "Registeren", TargetType = typeof(RegisterPage), IconSource =
-                            (currentTheme == OSAppTheme.Dark ? "outline_edit_white_24dp.png" : "outline_edit_black_24dp.png")
+                            (currentTheme == OSAppTheme.Dark
+                                ? "outline_edit_white_24dp.png"
+                                : "outline_edit_black_24dp.png")
                     },
                     new MainFlyoutPageFlyoutMenuItem
                     {
                         Id = 5, Title = "Uitloggen", TargetType = typeof(LoginPage), StyleClass = "MenuItemLayoutStyle",
-                        CustomAction = Logout, IconSource = (currentTheme == OSAppTheme.Dark ? "outline_logout_white_24dp.png" : "outline_logout_black_24dp.png")
+                        CustomAction = Logout,
+                        IconSource = (currentTheme == OSAppTheme.Dark
+                            ? "outline_logout_white_24dp.png"
+                            : "outline_logout_black_24dp.png")
                     },
+                    new MainFlyoutPageFlyoutMenuItem
+                    {
+                        Id = 6, Title = "Log", TargetType = typeof(LogPage),
+                        IconSource = (currentTheme == OSAppTheme.Dark
+                            ? "outline_article_white_24dp.png"
+                            : "outline_article_black_24dp.png")
+                    }
                 });
             }
 

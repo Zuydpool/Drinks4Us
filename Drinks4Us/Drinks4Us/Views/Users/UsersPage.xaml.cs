@@ -37,12 +37,12 @@ namespace Drinks4Us.Views.Users
             if (e.CurrentSelection.FirstOrDefault() is not AppUser appUser) return;
             // Deselect selected item
             ((CollectionView)sender).SelectedItem = null;
-            await Navigation.PushModalAsync(new DetailsUserPage(appUser));
+            await Navigation.PushAsync(new DetailsUserPage(appUser));
         }
 
         private async void AddUserButton_OnClicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new AddUserPage());
+            await Navigation.PushAsync(new AddUserPage());
         }
     }
 }

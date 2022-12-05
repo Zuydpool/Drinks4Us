@@ -10,11 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace Drinks4Us.Views.FridgeItems
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class DetailsFridgeItemModal : ContentPage
+    public partial class DetailsFridgeItemPage : ContentPage
     {
         private readonly FridgeItem _fridgeItem;
 
-        public DetailsFridgeItemModal(FridgeItem fridgeItem)
+        public DetailsFridgeItemPage(FridgeItem fridgeItem)
         {
             InitializeComponent();
 
@@ -35,7 +35,7 @@ namespace Drinks4Us.Views.FridgeItems
 
         private async void EditItemButton_OnClicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new EditFridgeItemPageModal(_fridgeItem));
+            await Navigation.PushAsync(new EditFridgeItemPage(_fridgeItem));
         }
 
         private async void DeleteItemButton_OnClicked(object sender, EventArgs e)
@@ -48,19 +48,19 @@ namespace Drinks4Us.Views.FridgeItems
                 if (deleteResult)
                 {
                     await DisplayAlert("Success", "Successfully deleted item!", "Ok!");
-                    await Navigation.PopModalAsync();
+                    await Navigation.PopAsync();
                 }
 
             }
             else
             {
-                await Navigation.PopModalAsync();
+                await Navigation.PopAsync();
             }
         }
 
         private async void BackButton_OnClicked(object sender, EventArgs e)
         {
-            await Navigation.PopModalAsync();
+            await Navigation.PopAsync();
         }
     }
 }

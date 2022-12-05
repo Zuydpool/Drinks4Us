@@ -16,5 +16,14 @@ namespace Drinks4Us.Views.Pages
         {
             InitializeComponent();
         }
+
+        protected override void OnAppearing()
+        {
+            var appUser = App.GetInstance().CurrentAppUser;
+            if (appUser != null)
+            {
+                WelcomeLabel.Text = "Welcome " + appUser.Email + "!";
+            }
+        }
     }
 }

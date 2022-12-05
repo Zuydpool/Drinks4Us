@@ -5,7 +5,7 @@
              NavigationPage.HasBackButton="False">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Home Page!"
+            <Label x:Name="WelcomeLabel" Text="Welcome!"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
         </StackLayout>

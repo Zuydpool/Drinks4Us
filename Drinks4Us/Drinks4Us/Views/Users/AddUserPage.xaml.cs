@@ -1,10 +1,5 @@
 ﻿using Drinks4Us.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -20,7 +15,7 @@ namespace Drinks4Us.Views.Users
 
         private async void CancelButton_OnClicked(object sender, EventArgs e)
         {
-            await Navigation.PopModalAsync();
+            await Navigation.PopAsync();
         }
 
         private async void SaveUserButton_OnClicked(object sender, EventArgs e)
@@ -30,16 +25,16 @@ namespace Drinks4Us.Views.Users
 
             var appUser = new AppUser
             {
-                Id = Guid.NewGuid().ToString(),
+                Id = 1,
                 Email = emailAddress,
-                Password = password
+                Password = BCrypt.Net.BCrypt.HashPassword(password, App.PasswordHash)
             };
 
 
             await App.GetInstance().Storage.Dao.AppUsersDao.Add(appUser);
             await DisplayAlert("Success", "Successfully added user!", "Ok!");
 
-            await Navigation.PopModalAsync();
+            await Navigation.PopAsync();
         }
     }
 }

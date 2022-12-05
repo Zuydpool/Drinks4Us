@@ -6,11 +6,11 @@ using Xamarin.Forms.Xaml;
 namespace Drinks4Us.Views.FridgeItems
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class EditFridgeItemPageModal : ContentPage
+    public partial class EditFridgeItemPage : ContentPage
     {
         private readonly FridgeItem _fridgeItem;
 
-        public EditFridgeItemPageModal(FridgeItem fridgeItem)
+        public EditFridgeItemPage(FridgeItem fridgeItem)
         {
             InitializeComponent();
 
@@ -53,12 +53,12 @@ namespace Drinks4Us.Views.FridgeItems
 
             await App.GetInstance().Storage.Dao.FridgeItemsDao.Update(_fridgeItem);
             await DisplayAlert("Success", "Successfully updated item!", "Ok!");
-            await Navigation.PopModalAsync();
+            await Navigation.PopAsync();
         }
 
         private async void CancelButton_OnClicked(object sender, EventArgs e)
         {
-            await Navigation.PopModalAsync();
+            await Navigation.PopAsync();
         }
     }
 }

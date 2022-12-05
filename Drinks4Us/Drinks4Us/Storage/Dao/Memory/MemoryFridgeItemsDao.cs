@@ -8,23 +8,9 @@ namespace Drinks4Us.Storage.Dao.Memory
 {
     public class MemoryFridgeItemsDao : IFridgeItemsDao
     {
-        private readonly IDictionary<string, FridgeItem> _items = new ConcurrentDictionary<string, FridgeItem>();
+        private readonly IDictionary<int, FridgeItem> _items = new ConcurrentDictionary<int, FridgeItem>();
 
-        public MemoryFridgeItemsDao()
-        {
-            var id = Guid.NewGuid().ToString();
-            _items.Add(id, new FridgeItem
-            {
-                Id = id,
-                Name = "1.5L Cola",
-                Quantity = 5,
-                PurchaseDate = DateTime.Today.AddDays(-14),
-                ExpireDate = DateTime.Today.AddDays(-2),
-                ImageUrl = "https://www.compliment.nl/wp-content/uploads/2022/10/10030.jpg"
-            });
-        }
-
-        public Task<FridgeItem> GetById(string id)
+        public Task<FridgeItem> GetById(int id)
         {
             return Task.Factory.StartNew(() => _items[id]);
         }
@@ -34,7 +20,7 @@ namespace Drinks4Us.Storage.Dao.Memory
             return Task.Factory.StartNew(() => _items.Values);
         }
 
-        public Task<bool> Delete(string id)
+        public Task<bool> Delete(int id)
         {
             return Task.Factory.StartNew(() => _items.Remove(id));
         }

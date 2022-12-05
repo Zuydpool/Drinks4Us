@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Drinks4Us.Views.FridgeItems.ConsumeFridgeItemPage"
+             Title="Consume Fridge Item">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center">
+            <Image Source="{Binding ImageUrl}" VerticalOptions="Center" HorizontalOptions="Center" />
+            <Label VerticalOptions="Center" 
+                   HorizontalOptions="Center" Text="{Binding Name}" />
+
+            <Label Text="{Binding Source={x:Reference QuantityStepper}, Path=Value}" VerticalOptions="Center" HorizontalOptions="Center" />
+            <Stepper x:Name="QuantityStepper" Value="{Binding Quantity}" ValueChanged="Stepper_OnValueChanged" HorizontalOptions="Center" />
+
+            <Button Text="Consume" HorizontalOptions="Center" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

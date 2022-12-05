@@ -2,11 +2,10 @@
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Drinks4Us.Views.FridgeItems.DetailsFridgeItemModal">
+             x:Class="Drinks4Us.Views.FridgeItems.DetailsFridgeItemPage"
+             Title="Fridge Item Details">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Show Details of Item" FontSize="Title" Margin="10"
-                   HorizontalOptions="Center" VerticalOptions="Center" />
 
             <StackLayout x:Name="FieldsStackLayout" Margin="24" Padding="24" Spacing="24"
                          HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
@@ -39,7 +38,7 @@
                     </Grid.ColumnDefinitions>
 
                     <Label Grid.Column="0" Text="Product Purchase Date" FontAttributes="Bold" HorizontalTextAlignment="Start" />
-                    <Label Grid.Column="1" Text="{Binding PurchaseDate}" FontAttributes="Bold"
+                    <Label Grid.Column="1" Text="{Binding PurchaseDate, StringFormat='{0:MMMM dd, yyyy}'}" FontAttributes="Bold"
                            HorizontalTextAlignment="End" />
                 </Grid>
 
@@ -50,16 +49,16 @@
                     </Grid.ColumnDefinitions>
 
                     <Label Grid.Column="0" Text="Product Expire Date" FontAttributes="Bold" HorizontalTextAlignment="Start" />
-                    <Label Grid.Column="1" Text="{Binding ExpireDate}" FontAttributes="Bold"
+                    <Label Grid.Column="1" Text="{Binding ExpireDate, StringFormat='{0:MMMM dd, yyyy}'}" FontAttributes="Bold"
                            HorizontalTextAlignment="End" />
                 </Grid>
             </StackLayout>
 
             <StackLayout HorizontalOptions="End" VerticalOptions="End" Margin="00,0,10,10">
                 <StackLayout Orientation="Horizontal">
-                    <Button x:Name="BackButton" FontAttributes="Bold" BackgroundColor="#1580D8"
+                    <!--<Button x:Name="BackButton" FontAttributes="Bold" BackgroundColor="#1580D8"
                             TextColor="White" Text="Back"
-                            Clicked="BackButton_OnClicked" />
+                            Clicked="BackButton_OnClicked" />-->
                     <Button x:Name="EditItemButton" FontAttributes="Bold" BackgroundColor="Orange"
                             TextColor="White" Text="Edit"
                             Clicked="EditItemButton_OnClicked" />

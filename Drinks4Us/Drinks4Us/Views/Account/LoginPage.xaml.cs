@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using Drinks4Us.Views.Pages;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -32,20 +33,22 @@ namespace Drinks4Us.Views.Account
             }
 
             var appUser = await App.GetInstance().Storage.Dao.AppUsersDao.GetByEmail(email);
-            if (appUser != null)
+            if (appUser == null)
             {
-                await DisplayAlert("Login", "Invalid Credentials", "Ok");
+                await DisplayAlert("Login", "Unknown email address", "Ok");
                 return;
             }
 
-            var isPasswordValid = BCrypt.Net.BCrypt.Verify(password, App.PasswordHash);
+            Debug.WriteLine(appUser.Password);
+
+            var isPasswordValid = BCrypt.Net.BCrypt.Verify(password, appUser.Password);
             if (!isPasswordValid)
             {
-                await DisplayAlert("Login", "Invalid Credentials", "Ok");
+                await DisplayAlert("Login", "Email address or password is invalid", "Ok");
                 return;
             }
 
-
+            App.GetInstance().CurrentAppUser = appUser;
             await DisplayAlert("Login", "Login Success", "Ok");
 
             await Navigation.PushAsync(new HomePage());

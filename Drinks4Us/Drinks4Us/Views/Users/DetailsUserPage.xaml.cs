@@ -21,12 +21,12 @@ namespace Drinks4Us.Views.Users
 
         private async void BackButton_OnClicked(object sender, EventArgs e)
         {
-            await Navigation.PopModalAsync();
+            await Navigation.PopAsync();
         }
 
         private async void EditUserButton_OnClicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new EditUserPage(_appUser));
+            await Navigation.PushAsync(new EditUserPage(_appUser));
         }
 
         private async void DeleteUserButton_OnClicked(object sender, EventArgs e)
@@ -39,12 +39,12 @@ namespace Drinks4Us.Views.Users
                 if (deleteResult)
                 {
                     await DisplayAlert("Success", "Successfully deleted user!", "Ok!");
-                    await Navigation.PopModalAsync();
+                    await Navigation.PopAsync();
                 }
             }
             else
             {
-                await Navigation.PopModalAsync();
+                await Navigation.PopAsync();
             }
         }
     }

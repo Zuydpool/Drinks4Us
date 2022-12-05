@@ -7,5 +7,7 @@
         public IAppUsersDao AppUsersDao { get; } = new MemoryAppUsersDao();
 
         public IFridgeDao FridgeDao { get; } = new MemoryFridgeDao();
+
+        public ILogDao LogDao { get; } = new MemoryLogDao();
     }
 }

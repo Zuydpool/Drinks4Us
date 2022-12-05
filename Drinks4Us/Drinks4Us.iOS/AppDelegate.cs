@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 using Foundation;
@@ -23,7 +24,13 @@ namespace Drinks4Us.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
-            LoadApplication(new App());
+            //global::Xamarin.Forms.FormsMaterial.Init();
+
+            var databaseFileName = "database.sqlite";
+            var folderPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "..", "Library");
+            var fullPath = Path.Combine(folderPath, databaseFileName);
+
+            LoadApplication(new App(fullPath));
 
             return base.FinishedLaunching(app, options);
         }

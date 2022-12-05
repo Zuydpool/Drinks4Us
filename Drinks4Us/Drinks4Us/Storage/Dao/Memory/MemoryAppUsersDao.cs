@@ -13,13 +13,13 @@ namespace Drinks4Us.Storage.Dao.Memory
         {
             AppUsers.Add(new AppUser
             {
-                Id = Guid.NewGuid().ToString(),
+                Id = 1,
                 Email = "jan.pillenman@gmail.com",
                 Password = BCrypt.Net.BCrypt.HashPassword("JanPillenman123!", App.PasswordHash),
             });
         }
 
-        public Task<AppUser> GetById(string id)
+        public Task<AppUser> GetById(int id)
         {
             return Task.Factory.StartNew(() => AppUsers.FirstOrDefault(appUser => appUser.Id == id));
         }
@@ -40,7 +40,7 @@ namespace Drinks4Us.Storage.Dao.Memory
             return Task.Factory.StartNew(() => AppUsers);
         }
 
-        public Task<bool> Delete(string id)
+        public Task<bool> Delete(int id)
         {
             var appUser = AppUsers.FirstOrDefault(appUser => appUser.Id == id);
             if (appUser == null) return Task.Factory.StartNew(() => false);

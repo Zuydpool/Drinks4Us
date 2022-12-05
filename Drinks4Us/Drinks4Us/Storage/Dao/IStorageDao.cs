@@ -7,5 +7,7 @@
         IAppUsersDao AppUsersDao { get; }
 
         IFridgeDao FridgeDao { get; }
+
+        ILogDao LogDao { get; }
     }
 }

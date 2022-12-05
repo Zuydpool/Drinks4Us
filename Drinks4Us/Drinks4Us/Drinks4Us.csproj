@@ -4,6 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
     <LangVersion>9</LangVersion>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -13,8 +14,10 @@
 
   <ItemGroup>
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
     <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
+    <PackageReference Include="SQLiteNetExtensions" Version="2.1.0" />
+    <PackageReference Include="SQLiteNetExtensions.Async" Version="2.1.0" />
     <PackageReference Include="WeatherAPI.NET.Extensions.NodaTime" Version="0.1.0" />
     <PackageReference Include="Xamarin.Auth" Version="1.7.0" />
     <PackageReference Include="Xamarin.CommunityToolkit" Version="2.0.5" />
@@ -30,16 +33,25 @@
     <EmbeddedResource Update="Views\Account\RegisterPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\FridgeItems\AddFridgeItemModal.xaml">
+    <EmbeddedResource Update="Views\FridgeItems\AddFridgeItemPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\FridgeItems\DetailsFridgeItemModal.xaml">
+    <EmbeddedResource Update="Views\FridgeItems\ConsumeFridgeItemPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\FridgeItems\EditFridgeItemPageModal.xaml">
+    <EmbeddedResource Update="Views\FridgeItems\DetailsFridgeItemPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\FridgeItems\EditFridgeItemPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\FridgeItems\FridgeItemsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Fridges\FridgesPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Log\LogPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Main\MainFlyoutPage.xaml">
@@ -69,15 +81,29 @@
     <Folder Include="Extensions\" />
     <Folder Include="Exceptions\" />
     <Folder Include="Storage\Dao\Memory\" />
-    <Folder Include="Storage\Dao\SQLite\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Views\FridgeItems\EditFridgeItemPageModal.xaml.cs">
-      <DependentUpon>EditFridgeItemPageModal.xaml</DependentUpon>
+    <Compile Update="Views\FridgeItems\AddFridgeItemPage.xaml.cs">
+      <DependentUpon>AddFridgeItemPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\FridgeItems\DetailsFridgeItemPage.xaml.cs">
+      <DependentUpon>DetailsFridgeItemPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\FridgeItems\EditFridgeItemPage.xaml.cs">
+      <DependentUpon>EditFridgeItemPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\FridgeItems\FridgeItemsPage.xaml.cs">
       <DependentUpon>FridgeItemsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Fridges\AddFridgePage.xaml.cs">
+      <DependentUpon>AddFridgePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Fridges\DetailsFridgePage.xaml.cs">
+      <DependentUpon>DetailsFridgePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Fridges\EditFridgePage.xaml.cs">
+      <DependentUpon>EditFridgePage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 </Project>

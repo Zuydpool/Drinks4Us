@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:behaviors="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="Drinks4Us.Views.Fridges.AddFridgePage"
+             Title="Add Fridge">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <StackLayout Margin="24" Padding="24" Spacing="24"
+                         HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+                <StackLayout>
+                    <Label Text="Fridge Name" TextColor="White" />
+                    <Entry x:Name="FridgeNameEntry" Placeholder="Fridge Name" TextColor="White" PlaceholderColor="White">
+                        <Entry.Behaviors>
+                            <behaviors:MultiValidationBehavior x:Name="FridgeNameValidator" InvalidStyle="{StaticResource InvalidEntryStyle}">
+                                <behaviors:RequiredStringValidationBehavior
+                                    RequiredString="{Binding Source={x:Reference FridgeNameEntry},Path=Text}"/>
+                                <behaviors:TextValidationBehavior MinimumLength="1" DecorationFlags="Trim" />
+                            </behaviors:MultiValidationBehavior>
+                        </Entry.Behaviors>
+                    </Entry>
+                </StackLayout>
+
+                <StackLayout>
+                    <Label Text="Fridge Image Url" TextColor="White"></Label>
+                    <Entry x:Name="FridgeImageUrlEntry" Placeholder="Fridge Image Url" TextColor="White" PlaceholderColor="White" />
+                </StackLayout>
+
+            </StackLayout>
+
+            <StackLayout HorizontalOptions="End" VerticalOptions="End" Margin="00,0,10,10">
+                <StackLayout Orientation="Horizontal">
+                    <Button x:Name="CancelButton" FontAttributes="Bold" Background="#34a8eb" TextColor="White"
+                            Text="Cancel" Clicked="CancelButton_OnClicked" />
+                    <Button x:Name="SaveItemButton" Style="{StaticResource SaveButton}" Text="Save"
+                            Clicked="SaveFridgeButton_OnClicked" />
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

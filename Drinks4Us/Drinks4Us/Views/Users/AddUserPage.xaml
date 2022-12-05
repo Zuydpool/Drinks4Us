@@ -3,33 +3,38 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:behaviors="http://xamarin.com/schemas/2020/toolkit"
-             x:Class="Drinks4Us.Views.Users.AddUserPage">
+             x:Class="Drinks4Us.Views.Users.AddUserPage"
+             Title="Add User">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Add User" FontSize="Title" Margin="10"
-                   HorizontalOptions="Center" VerticalOptions="Center" />
 
             <StackLayout Margin="24" Padding="24" Spacing="24"
                          HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 
-                <Entry x:Name="EmailEntry" Placeholder="Email Address">
-                    <Entry.Behaviors>
-                        <behaviors:TextValidationBehavior
-                            x:Name="EmailValidator"
-                            InvalidStyle="{StaticResource InvalidEntryStyle}"
-                            MinimumLength="1" />
-                    </Entry.Behaviors>
-                </Entry>
+                <StackLayout>
+                    <Label Text="Email Address" Style="{StaticResource LabelStyle}"></Label>
+                    <Entry x:Name="EmailEntry" Placeholder="Email Address" TextColor="White" PlaceholderColor="White">
+                        <Entry.Behaviors>
+                            <behaviors:TextValidationBehavior
+                                x:Name="EmailValidator"
+                                InvalidStyle="{StaticResource InvalidEntryStyle}"
+                                MinimumLength="1" />
+                        </Entry.Behaviors>
+                    </Entry>
+                </StackLayout>
 
-                <Entry x:Name="PasswordEntry" Placeholder="Password" IsPassword="True" MaxLength="36">
-                    <Entry.Behaviors>
-                        <behaviors:TextValidationBehavior
-                            x:Name="PasswordValidator"
-                            InvalidStyle="{StaticResource InvalidEntryStyle}"
-                            MinimumLength="1"
-                            MaximumLength="36" />
-                    </Entry.Behaviors>
-                </Entry>
+                <StackLayout>
+                    <Label Text="Password" Style="{StaticResource LabelStyle}"></Label>
+                    <Entry x:Name="PasswordEntry" Placeholder="Password" IsPassword="True" MaxLength="36" TextColor="White" PlaceholderColor="White">
+                        <Entry.Behaviors>
+                            <behaviors:TextValidationBehavior
+                                x:Name="PasswordValidator"
+                                InvalidStyle="{StaticResource InvalidEntryStyle}"
+                                MinimumLength="1"
+                                MaximumLength="36" />
+                        </Entry.Behaviors>
+                    </Entry>
+                </StackLayout>
 
             </StackLayout>
 

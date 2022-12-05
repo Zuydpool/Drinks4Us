@@ -6,7 +6,7 @@ namespace Drinks4Us.Storage
     {
         public IStorage GetInstance()
         {
-            var storage = CreateNewImplementation(StorageType.MEMORY);
+            var storage = CreateNewImplementation(StorageType.SQLITE);
             storage.SetupStorage();
             return storage;
         }
