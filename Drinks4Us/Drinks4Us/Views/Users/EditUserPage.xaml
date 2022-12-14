@@ -12,7 +12,7 @@
 
                 <StackLayout>
                     <Label Text="Email Address" Style="{StaticResource LabelStyle}"></Label>
-                    <Entry x:Name="EmailEntry" Placeholder="Email Address" Text="{Binding Email}" TextColor="White" PlaceholderColor="White">
+                    <Entry x:Name="EmailEntry" Placeholder="Email Address" Text="{Binding Email}" Style="{StaticResource EntryStyle}">
                         <Entry.Behaviors>
                             <behaviors:TextValidationBehavior
                                 x:Name="EmailValidator"
@@ -24,7 +24,7 @@
 
                 <StackLayout>
                     <Label Text="Password" Style="{StaticResource LabelStyle}"></Label>
-                    <Entry x:Name="PasswordEntry" Placeholder="Password" IsPassword="True" MaxLength="36" TextColor="White" PlaceholderColor="White">
+                    <Entry x:Name="PasswordEntry" Placeholder="Password" IsPassword="True" MaxLength="36" Style="{StaticResource EntryStyle}">
                         <Entry.Behaviors>
                             <behaviors:NumericValidationBehavior
                                 x:Name="PasswordValidator"

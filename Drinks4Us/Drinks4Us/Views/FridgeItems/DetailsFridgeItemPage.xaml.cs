@@ -30,7 +30,6 @@ namespace Drinks4Us.Views.FridgeItems
             {
                 await DisplayAlert("Expired", _fridgeItem.GetExpiredMessage(DateTime.Now), "Ok");
             }
-
         }
 
         private async void EditItemButton_OnClicked(object sender, EventArgs e)

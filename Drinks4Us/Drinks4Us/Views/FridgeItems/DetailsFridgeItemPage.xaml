@@ -52,6 +52,11 @@
                     <Label Grid.Column="1" Text="{Binding ExpireDate, StringFormat='{0:MMMM dd, yyyy}'}" FontAttributes="Bold"
                            HorizontalTextAlignment="End" />
                 </Grid>
+
+                <StackLayout>
+                    <Label Text="Image" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                    <Image x:Name="ResultImage" Source="{Binding ImageUrl}" />
+                </StackLayout>
             </StackLayout>
 
             <StackLayout HorizontalOptions="End" VerticalOptions="End" Margin="00,0,10,10">

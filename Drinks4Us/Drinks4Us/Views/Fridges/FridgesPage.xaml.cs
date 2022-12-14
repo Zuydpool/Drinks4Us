@@ -66,8 +66,9 @@ namespace Drinks4Us.Views.Fridges
             FridgeItemsCollectionView.ItemsSource = searchResult;
         }
 
-        private void AddFridgeButton_OnClicked(object sender, EventArgs e)
+        private async void AddFridgeButton_OnClicked(object sender, EventArgs e)
         {
+            await Navigation.PushAsync(new AddFridgePage());
         }
 
         private async void AddFridgeToolbarItem_OnClicked(object sender, EventArgs e)
@@ -77,15 +78,13 @@ namespace Drinks4Us.Views.Fridges
 
         private async void ViewFridgeSwipeItem_OnInvoked(object sender, EventArgs e)
         {
-            if (sender is not SwipeItem item) return;
-            var fridge = item.BindingContext as Fridge;
+            if (sender is not SwipeItem { BindingContext: Fridge fridge }) return;
             await Navigation.PushAsync(new DetailsFridgePage(fridge));
         }
 
         private async void EditFridgeSwipeItem_OnInvoked(object sender, EventArgs e)
         {
-            if (sender is not SwipeItem item) return;
-            var fridge = item.BindingContext as Fridge;
+            if (sender is not SwipeItem { BindingContext: Fridge fridge }) return;
             await Navigation.PushAsync(new EditFridgePage(fridge));
         }
 
@@ -105,7 +104,7 @@ namespace Drinks4Us.Views.Fridges
         }
 
         protected bool SetProperty<T>(ref T backingStore, T value, [CallerMemberName] string propertyName = "",
-            Action onChanged = null)
+            Action? onChanged = null)
         {
             if (EqualityComparer<T>.Default.Equals(backingStore, value))
                 return false;

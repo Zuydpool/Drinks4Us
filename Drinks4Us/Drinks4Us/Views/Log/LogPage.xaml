@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Drinks4Us.Views.Log.LogPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <SearchBar x:Name="LogSearchBar" Placeholder="Zoek hier..." CancelButtonColor="Black"
+                       HorizontalTextAlignment="Center"
+                       TextChanged="LogSearchBar_OnTextChanged" />
+            <RefreshView IsRefreshing="{Binding IsRefreshing, Mode=OneWay}" Command="{Binding RefreshCommand}">
+                <CollectionView x:Name="FridgeItemsCollectionView" ItemsSource="{Binding Items}"
+                                ItemsLayout="VerticalList" SelectionMode="Single"
+                                EmptyView="No items to display">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid x:Name="DataGrid" Padding="10" Margin="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="1.*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <!--<Image Source="{Binding ImageUrl}" Aspect="AspectFit" Grid.RowSpan="2"
+                                       HeightRequest="50" Grid.Column="0" />-->
+                                <Label Text="{Binding Id, StringFormat='ID: {0}'}" Grid.Row="0" Grid.Column="0" />
+                                <Label Text="{Binding DateTime, StringFormat='Date: {0:dd-MM-yyyy HH:mm:ss}'}" Grid.Row="1"
+                                       Grid.Column="0" />
+                                <Label Text="{Binding Message}" Grid.Row="2" Grid.Column="0" />
+                                <BoxView Grid.Row="3" HorizontalOptions="FillAndExpand" Grid.ColumnSpan="3"
+                                         VerticalOptions="Center" HeightRequest="3" BackgroundColor="DarkGray" />
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </RefreshView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

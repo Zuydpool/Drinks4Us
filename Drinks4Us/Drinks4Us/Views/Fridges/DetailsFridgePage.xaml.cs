@@ -47,9 +47,11 @@ namespace Drinks4Us.Views.Fridges
             }
         }
 
-        private async void BackButton_OnClicked(object sender, EventArgs e)
+        private async void NextReplenisherButton_OnClicked(object sender, EventArgs e)
         {
-            await Navigation.PopAsync();
+            var nextReplenisher = await _fridge.GetRandomReplenisher();
+            if (nextReplenisher == null) return;
+            await DisplayAlert("Success", $"{nextReplenisher.Email} will be the next to replenish the fridge!", "Ok");
         }
     }
 }

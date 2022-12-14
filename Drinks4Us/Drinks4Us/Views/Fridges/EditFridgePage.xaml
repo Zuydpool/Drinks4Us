@@ -13,8 +13,7 @@
 
                 <StackLayout>
                     <Label Text="Fridge Name" TextColor="White" />
-                    <Entry x:Name="FridgeNameEntry" Placeholder="Fridge Name" Text="{Binding Name}" TextColor="White"
-                           PlaceholderColor="White">
+                    <Entry x:Name="FridgeNameEntry" Placeholder="Fridge Name" Text="{Binding Name}" Style="{StaticResource LabelStyle}">
                         <Entry.Behaviors>
                             <behaviors:MultiValidationBehavior x:Name="ProductNameValidator"
                                                                InvalidStyle="{StaticResource InvalidEntryStyle}">
@@ -27,10 +26,18 @@
                     </Entry>
                 </StackLayout>
 
-                <StackLayout>
-                    <Label Text="Fridge Image Url" TextColor="White" />
-                    <Entry x:Name="FridgeImageUrlEntry" Placeholder="Fridge Image Url" Text="{Binding ImageUrl}"
-                           TextColor="White" PlaceholderColor="White" />
+                <StackLayout Margin="0,0,0,0">
+                    <StackLayout Orientation="Horizontal">
+                        <Button x:Name="TakePicture"
+                                ImageSource="{AppThemeBinding Light=outline_photo_camera_white_24dp.png, Dark=outline_photo_camera_white_24dp.png}"
+                                Text="Take Picture" FontSize="11" WidthRequest="130"
+                                Clicked="TakePicture_OnClicked" />
+                        <Button x:Name="SelectPicture"
+                                ImageSource="{AppThemeBinding Light=outline_add_a_photo_white_24dp.png, Dark=outline_add_a_photo_white_24dp.png}"
+                                Text="Select Picture" FontSize="11" WidthRequest="130"
+                                Clicked="SelectPicture_OnClicked" />
+                    </StackLayout>
+                    <Image x:Name="ResultImage" Source="{Binding ImageUrl}" />
                 </StackLayout>
             </StackLayout>
 

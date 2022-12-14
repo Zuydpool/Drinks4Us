@@ -18,6 +18,11 @@
                     <Label Grid.Column="0" Text="Email Address" FontAttributes="Bold" HorizontalTextAlignment="Start" />
                     <Label Grid.Column="1" Text="{Binding Email}" FontAttributes="Bold" HorizontalTextAlignment="End" />
                 </Grid>
+
+                <StackLayout>
+                    <Label Text="Profile Picture" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                    <Image x:Name="ResultImage" Source="{Binding ProfilePicture}" />
+                </StackLayout>
             </StackLayout>
 
             <StackLayout HorizontalOptions="End" VerticalOptions="End" Margin="00,0,10,10">

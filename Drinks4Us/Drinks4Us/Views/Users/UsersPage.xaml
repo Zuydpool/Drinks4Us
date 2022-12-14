@@ -9,33 +9,38 @@
                             SelectionMode="Single" SelectionChanged="UsersCollectionView_OnSelectionChanged">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Grid x:Name="DataGrid" Padding="10" Margin="10">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="1.5*"/>
-                                <RowDefinition Height="1.5*"/>
-                                <RowDefinition Height="1*"/>
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="2*"/>
-                                <ColumnDefinition Width="4*"/>
-                                <ColumnDefinition Width="2*"/>
-                            </Grid.ColumnDefinitions>
-                            <Image Source="{Binding ProfilePicture}" Aspect="AspectFit" Grid.RowSpan="2" HeightRequest="50" Grid.Column="0" />
-                            <Label Text="{Binding Email}" Grid.Row="0" Grid.Column="1" />
-                            <!--<Label Text="{Binding Quantity, StringFormat='St. {0}'}" Grid.Row="0" Grid.Column="2" />-->
-                            <!--<Label Text="{Binding Description}" Grid.Row="1" Grid.Column="1" />
+                        <Frame CornerRadius="10" Padding="0" HasShadow="True" IsClippedToBounds="True">
+                            <Grid x:Name="DataGrid" Padding="10" Margin="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1.5*" />
+                                    <RowDefinition Height="1.5*" />
+                                    <RowDefinition Height="1*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*" />
+                                    <ColumnDefinition Width="4*" />
+                                    <ColumnDefinition Width="2*" />
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{Binding ProfilePicture}" Aspect="AspectFit" Grid.RowSpan="2"
+                                       HeightRequest="50" Grid.Column="0" />
+                                <Label Text="{Binding Email}" Grid.Row="0" Grid.Column="1" />
+                                <!--<Label Text="{Binding Quantity, StringFormat='St. {0}'}" Grid.Row="0" Grid.Column="2" />-->
+                                <!--<Label Text="{Binding Description}" Grid.Row="1" Grid.Column="1" />
                             <Label Text="{Binding Price, Mode=OneWay, StringFormat='€{0}'}" Grid.Row="1" Grid.Column="2" />-->
-                            <BoxView Grid.Row="2" HorizontalOptions="FillAndExpand" Grid.ColumnSpan="3"
-                                     VerticalOptions="Center" HeightRequest="3" BackgroundColor="DarkGray" />
-                        </Grid>
+                                <!--<BoxView Grid.Row="2" HorizontalOptions="FillAndExpand" Grid.ColumnSpan="3"
+                                     VerticalOptions="Center" HeightRequest="3" BackgroundColor="DarkGray" />-->
+                            </Grid>
+                        </Frame>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
             <StackLayout HorizontalOptions="End" VerticalOptions="End" Margin="00,0,10,10">
-                <Button Text="+" CornerRadius="30" FontSize="Large" TextColor="White"
+                <Button Text="+" CornerRadius="30" FontSize="Large"
                         WidthRequest="60" HeightRequest="60" AbsoluteLayout.LayoutFlags="PositionProportional"
-                        HorizontalOptions="Center" VerticalOptions="Center" x:Name="AddItemButton" Clicked="AddUserButton_OnClicked" />
+                        HorizontalOptions="Center" VerticalOptions="Center" x:Name="AddItemButton"
+                        Clicked="AddUserButton_OnClicked"
+                        Style="{StaticResource AddButtonStyle}" />
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

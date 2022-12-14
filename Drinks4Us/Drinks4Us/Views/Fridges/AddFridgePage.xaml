@@ -12,8 +12,8 @@
                          HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 
                 <StackLayout>
-                    <Label Text="Fridge Name" TextColor="White" />
-                    <Entry x:Name="FridgeNameEntry" Placeholder="Fridge Name" TextColor="White" PlaceholderColor="White">
+                    <Label Text="Fridge Name" Style="{StaticResource LabelStyle}" />
+                    <Entry x:Name="FridgeNameEntry" Placeholder="Fridge Name" Style="{StaticResource EntryStyle}">
                         <Entry.Behaviors>
                             <behaviors:MultiValidationBehavior x:Name="FridgeNameValidator" InvalidStyle="{StaticResource InvalidEntryStyle}">
                                 <behaviors:RequiredStringValidationBehavior
@@ -24,9 +24,18 @@
                     </Entry>
                 </StackLayout>
 
-                <StackLayout>
-                    <Label Text="Fridge Image Url" TextColor="White"></Label>
-                    <Entry x:Name="FridgeImageUrlEntry" Placeholder="Fridge Image Url" TextColor="White" PlaceholderColor="White" />
+                <StackLayout Margin="0,0,0,0">
+                    <StackLayout Orientation="Horizontal">
+                        <Button x:Name="TakePicture"
+                                ImageSource="{AppThemeBinding Light=outline_photo_camera_white_24dp.png, Dark=outline_photo_camera_white_24dp.png}"
+                                Text="Take Picture" FontSize="11" WidthRequest="130"
+                                Clicked="TakePicture_OnClicked" />
+                        <Button x:Name="SelectPicture"
+                                ImageSource="{AppThemeBinding Light=outline_add_a_photo_white_24dp.png, Dark=outline_add_a_photo_white_24dp.png}"
+                                Text="Select Picture" FontSize="11" WidthRequest="130"
+                                Clicked="SelectPicture_OnClicked" />
+                    </StackLayout>
+                    <Image x:Name="ResultImage" />
                 </StackLayout>
 
             </StackLayout>

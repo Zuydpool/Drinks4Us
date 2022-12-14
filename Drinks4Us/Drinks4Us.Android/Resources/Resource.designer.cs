@@ -27728,58 +27728,73 @@ namespace Drinks4Us.Droid
 			public const int outline_account_circle_white_24dp = 2131165331;
 			
 			// aapt resource value: 0x7F070094
-			public const int outline_article_black_24dp = 2131165332;
+			public const int outline_add_a_photo_black_24dp = 2131165332;
 			
 			// aapt resource value: 0x7F070095
-			public const int outline_article_white_24dp = 2131165333;
+			public const int outline_add_a_photo_white_24dp = 2131165333;
 			
 			// aapt resource value: 0x7F070096
-			public const int outline_dashboard_black_24dp = 2131165334;
+			public const int outline_article_black_24dp = 2131165334;
 			
 			// aapt resource value: 0x7F070097
-			public const int outline_dashboard_white_24dp = 2131165335;
+			public const int outline_article_white_24dp = 2131165335;
 			
 			// aapt resource value: 0x7F070098
-			public const int outline_edit_black_24dp = 2131165336;
+			public const int outline_dashboard_black_24dp = 2131165336;
 			
 			// aapt resource value: 0x7F070099
-			public const int outline_edit_white_24dp = 2131165337;
+			public const int outline_dashboard_white_24dp = 2131165337;
 			
 			// aapt resource value: 0x7F07009A
-			public const int outline_fastfood_black_24dp = 2131165338;
+			public const int outline_edit_black_24dp = 2131165338;
 			
 			// aapt resource value: 0x7F07009B
-			public const int outline_fastfood_white_24dp = 2131165339;
+			public const int outline_edit_white_24dp = 2131165339;
 			
 			// aapt resource value: 0x7F07009C
-			public const int outline_logout_black_24dp = 2131165340;
+			public const int outline_fastfood_black_24dp = 2131165340;
 			
 			// aapt resource value: 0x7F07009D
-			public const int outline_logout_white_24dp = 2131165341;
+			public const int outline_fastfood_white_24dp = 2131165341;
 			
 			// aapt resource value: 0x7F07009E
-			public const int outline_manage_accounts_black_24dp = 2131165342;
+			public const int outline_logout_black_24dp = 2131165342;
 			
 			// aapt resource value: 0x7F07009F
-			public const int outline_manage_accounts_white_24dp = 2131165343;
+			public const int outline_logout_white_24dp = 2131165343;
 			
 			// aapt resource value: 0x7F0700A0
-			public const int preference_list_divider_material = 2131165344;
+			public const int outline_manage_accounts_black_24dp = 2131165344;
 			
 			// aapt resource value: 0x7F0700A1
-			public const int test_custom_background = 2131165345;
+			public const int outline_manage_accounts_white_24dp = 2131165345;
 			
 			// aapt resource value: 0x7F0700A2
-			public const int tooltip_frame_dark = 2131165346;
+			public const int outline_menu_black_24dp = 2131165346;
 			
 			// aapt resource value: 0x7F0700A3
-			public const int tooltip_frame_light = 2131165347;
+			public const int outline_photo_camera_black_24dp = 2131165347;
 			
 			// aapt resource value: 0x7F0700A4
-			public const int visibility = 2131165348;
+			public const int outline_photo_camera_white_24dp = 2131165348;
 			
 			// aapt resource value: 0x7F0700A5
-			public const int visibility_off = 2131165349;
+			public const int preference_list_divider_material = 2131165349;
+			
+			// aapt resource value: 0x7F0700A6
+			public const int test_custom_background = 2131165350;
+			
+			// aapt resource value: 0x7F0700A7
+			public const int tooltip_frame_dark = 2131165351;
+			
+			// aapt resource value: 0x7F0700A8
+			public const int tooltip_frame_light = 2131165352;
+			
+			// aapt resource value: 0x7F0700A9
+			public const int visibility = 2131165353;
+			
+			// aapt resource value: 0x7F0700AA
+			public const int visibility_off = 2131165354;
 			
 			static Drawable()
 			{

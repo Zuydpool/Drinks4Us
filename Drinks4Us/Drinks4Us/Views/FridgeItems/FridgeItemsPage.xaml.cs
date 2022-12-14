@@ -141,15 +141,13 @@ namespace Drinks4Us.Views.FridgeItems
 
         private async void EditFridgeItemSwipeItem_OnInvoked(object sender, EventArgs e)
         {
-            if (sender is not SwipeItem item) return;
-            var fridgeItem = item.BindingContext as FridgeItem;
+            if (sender is not SwipeItem { BindingContext: FridgeItem fridgeItem }) return;
             await Navigation.PushAsync(new EditFridgeItemPage(fridgeItem));
         }
 
         private async void ViewFridgeItemSwipeItem_OnInvoked(object sender, EventArgs e)
         {
-            if (sender is not SwipeItem item) return;
-            var fridgeItem = item.BindingContext as FridgeItem;
+            if (sender is not SwipeItem { BindingContext: FridgeItem fridgeItem }) return;
             await Navigation.PushAsync(new DetailsFridgeItemPage(fridgeItem));
         }
     }

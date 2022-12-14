@@ -10,9 +10,9 @@
                    HorizontalOptions="Center" Text="{Binding Name}" />
 
             <Label Text="{Binding Source={x:Reference QuantityStepper}, Path=Value}" VerticalOptions="Center" HorizontalOptions="Center" />
-            <Stepper x:Name="QuantityStepper" Value="{Binding Quantity}" ValueChanged="Stepper_OnValueChanged" HorizontalOptions="Center" />
+            <Stepper x:Name="QuantityStepper" Minimum="1" Maximum="100" ValueChanged="Stepper_OnValueChanged" HorizontalOptions="Center" />
 
-            <Button Text="Consume" HorizontalOptions="Center" />
+            <Button x:Name="ConsumeButton" Text="Consume" HorizontalOptions="Center" Clicked="ConsumeButton_OnClicked" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

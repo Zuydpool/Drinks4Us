@@ -31,6 +31,7 @@ namespace Drinks4Us.Storage
             connection.CreateTable<Fridge>();
             connection.CreateTable<FridgeItem>();
             connection.CreateTable<AppUser>();
+            connection.CreateTable<Log>();
             /*var createAppUsersTableSql =
                 @"CREATE TABLE IF NOT EXISTS app_users(id TEXT PRIMARY KEY, email VARCHAR(253) NOT NULL, password TEXT NOT NULL);";
 

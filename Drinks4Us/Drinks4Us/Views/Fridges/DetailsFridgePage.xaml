@@ -39,6 +39,21 @@
                     <Label Grid.Column="0" Text="Last Filled By" FontAttributes="Bold" HorizontalTextAlignment="Start" />
                     <Label Grid.Column="1" Text="{Binding LastFilledBy}" FontAttributes="Bold" HorizontalTextAlignment="End" />
                 </Grid>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Column="0" Text="Needs Replenish" FontAttributes="Bold" HorizontalTextAlignment="Start" />
+                    <Label Grid.Column="1" Text="{Binding NeedsReplenish}" FontAttributes="Bold" HorizontalTextAlignment="End" />
+                </Grid>
+
+                <StackLayout>
+                    <Label Text="Image" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                    <Image x:Name="ResultImage" Source="{Binding ImageUrl}" />
+                </StackLayout>
             </StackLayout>
 
             <StackLayout HorizontalOptions="End" VerticalOptions="End" Margin="00,0,10,10">
@@ -46,6 +61,9 @@
                     <!--<Button x:Name="BackButton" FontAttributes="Bold" BackgroundColor="#1580D8"
                             TextColor="White" Text="Back"
                             Clicked="BackButton_OnClicked" />-->
+                    <Button x:Name="NextReplenisherButton" FontAttributes="Bold" BackgroundColor="#1580D8"
+                            TextColor="White" Text="Random replenisher"
+                            Clicked="NextReplenisherButton_OnClicked" />
                     <Button x:Name="EditItemButton" FontAttributes="Bold" BackgroundColor="Orange"
                             TextColor="White" Text="Edit"
                             Clicked="EditItemButton_OnClicked" />
