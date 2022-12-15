@@ -2,6 +2,7 @@
 using System.IO;
 using Drinks4Us.Models;
 using Drinks4Us.Storage;
+using Drinks4Us.Views.Account;
 using Drinks4Us.Views.Main;
 using Xamarin.Forms;
 
@@ -34,7 +35,9 @@ namespace Drinks4Us
 
             Storage = new StorageFactory().GetInstance();
 
-            MainPage = new NavigationPage(new MainFlyoutPage());
+            Sharpnado.MaterialFrame.Initializer.Initialize(false, false);
+
+            MainPage = new NavigationPage(new LoginPage());
         }
 
         protected override void OnStart()

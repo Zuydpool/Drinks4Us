@@ -101,6 +101,31 @@
                 <Setter Property="TextColor" Value="White" />
             </Style>
 
+            <Style TargetType="Button" x:Key="SimpleButtonStyle">
+                <Setter Property="WidthRequest" Value="155" />
+                <Setter Property="CornerRadius" Value="1" />
+                <Setter Property="BorderWidth" Value="0" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="TextColor" Value="{DynamicResource PrimaryColor}" />
+            </Style>
+
+            <Style TargetType="Button" x:Key="GradientBlueButtonStyle">
+                <Setter Property="Background">
+                    <LinearGradientBrush StartPoint="0,0"
+                                         EndPoint="1,0">
+                        <GradientStop Color="#2291FC"
+                                      Offset="0.1" />
+                        <GradientStop Color="#0EBBF7"
+                                      Offset="1.0" />
+                    </LinearGradientBrush>
+                </Setter>
+            </Style>
+
+            <Style TargetType="SearchBar">
+                <Setter Property="CancelButtonColor" Value="{AppThemeBinding Light={StaticResource LightSecondaryColor}, Dark={StaticResource DarkSecondaryColor}}" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource LightSecondaryColor}, Dark={StaticResource DarkSecondaryColor}}" />
+                <Setter Property="PlaceholderColor" Value="{AppThemeBinding Light={StaticResource LightSecondaryColor}, Dark={StaticResource DarkSecondaryColor}}" />
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

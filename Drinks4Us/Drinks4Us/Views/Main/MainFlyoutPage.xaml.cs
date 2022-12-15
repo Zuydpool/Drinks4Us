@@ -1,5 +1,6 @@
 ﻿using Drinks4Us.Services;
 using System;
+using System.Diagnostics;
 using System.Timers;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -33,11 +34,24 @@ namespace Drinks4Us.Views.Main
             if (e.SelectedItem is not MainFlyoutPageFlyoutMenuItem item)
                 return;
 
-            var page = (Page)Activator.CreateInstance(item.TargetType);
-            page.Title = item.Title;
+            //Debug.WriteLine("TargetType not null=" + item.TargetType != null);
+            if (item.CustomAction != null)
+            {
+                if (item.Title == "Uitloggen")
+                {
+                    Navigation.PopToRootAsync();
+                }
 
-            Detail = new NavigationPage(page);
-            IsPresented = false;
+                item.CustomAction?.Invoke();
+            }
+            else if (item.TargetType != null)
+            {
+                var page = (Page)Activator.CreateInstance(item.TargetType);
+                page.Title = item.Title;
+
+                Detail = new NavigationPage(page);
+                IsPresented = false;
+            }
 
             FlyoutPage.ListView.SelectedItem = null;
         }
@@ -45,7 +59,6 @@ namespace Drinks4Us.Views.Main
         private void UpdateWeather(object sender, ElapsedEventArgs e)
         {
             Device.BeginInvokeOnMainThread(RefreshWeather);
-            
         }
 
         private async void RefreshWeather()

@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Drinks4Us.Views.WelcomePage"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="StartAndExpand" Margin="0, 20, 0, 0">
+            <StackLayout.Padding>
+                <OnIdiom x:TypeArguments="Thickness">
+                    <OnIdiom.Phone>40,0,40,0</OnIdiom.Phone>
+                    <OnIdiom.Tablet>140,150,140,0</OnIdiom.Tablet>
+
+                </OnIdiom>
+            </StackLayout.Padding>
+            <StackLayout Padding="0,50,0, 0">
+                <Label Text="Welcome to Drinks4Us!" FontSize="Title"
+                       FontAttributes="Bold"
+                       VerticalOptions="StartAndExpand"
+                       HorizontalOptions="CenterAndExpand" />
+                <Label Text="Use your credentials to login" FontSize="Medium"
+                       VerticalOptions="StartAndExpand"
+                       HorizontalOptions="CenterAndExpand" />
+            </StackLayout>
+
+            <StackLayout Padding="0, 50, 0, 0">
+                <StackLayout>
+                    <!--<Label x:Name="LabelEmail" Text="Email Address" Style="{StaticResource LabelStyle}" />-->
+                    <Entry x:Name="EntryEmail" Placeholder="Email Address" MaxLength="24" Keyboard="Email" Style="{StaticResource EntryStyle}" />
+                </StackLayout>
+
+                <Grid Padding="0, 5, 0, 20">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!--<Label x:Name="LabelPassword" Text="Password" Style="{StaticResource LabelStyle}" />-->
+                    <Entry x:Name="EntryPassword" Placeholder="Password" IsPassword="True" MaxLength="36" Style="{StaticResource EntryStyle}" />
+                    <ImageButton x:Name="ImageButtonShowHidePassword" Grid.Row="0" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="End"
+                                 Style="{StaticResource ImageButtonShowHidePassword}" WidthRequest="40" HeightRequest="40" 
+                                 Margin="5,0,5,0" Clicked="ImageButtonShowHidePassword_OnClicked" Source="{AppThemeBinding Light=outline_visibility_off_black_24dp.png, Dark=outline_visibility_off_white_24dp.png}" />
+                </Grid>
+
+                <Button x:Name="ButtonSignIn" Text="Sign In" Clicked="SignInProcedure"
+                        CornerRadius="25"
+                        BackgroundColor="Accent" />
+                <Label Text="Not a registered member?" FontSize="Small" HorizontalOptions="CenterAndExpand" />
+                <StackLayout Padding="0, 10, 0, 10">
+                    <BoxView Color="#d4d4d4" WidthRequest="100" HeightRequest="1" />
+                </StackLayout>
+                <Button x:Name="RegisterButton" Text="Register Account"
+                        CornerRadius="25"
+                        BackgroundColor="#3b5999"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

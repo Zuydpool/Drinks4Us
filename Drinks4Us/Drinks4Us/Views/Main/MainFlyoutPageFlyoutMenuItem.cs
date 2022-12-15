@@ -15,12 +15,12 @@ namespace Drinks4Us.Views.Main
         public int Id { get; set; }
         public string Title { get; set; }
 
-        public Type TargetType { get; set; }
+        public Type? TargetType { get; set; }
 
         public string StyleClass { get; set; }
 
         //TODO: Custom action property
-        public Action CustomAction { get; set; }
+        public Action? CustomAction { get; set; }
 
         public string IconSource { get; set; }
     }

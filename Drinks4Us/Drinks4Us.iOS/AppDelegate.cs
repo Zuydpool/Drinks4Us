@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 
 using Foundation;
+using Sharpnado.MaterialFrame.iOS;
 using UIKit;
 
 namespace Drinks4Us.iOS
@@ -30,6 +31,7 @@ namespace Drinks4Us.iOS
             var folderPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "..", "Library");
             var fullPath = Path.Combine(folderPath, databaseFileName);
 
+            iOSMaterialFrameRenderer.Init();
             LoadApplication(new App(fullPath));
 
             return base.FinishedLaunching(app, options);

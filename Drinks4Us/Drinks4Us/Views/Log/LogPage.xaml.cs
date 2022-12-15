@@ -40,7 +40,7 @@ namespace Drinks4Us.Views.Log
             var items = await App.GetInstance().Storage.Dao.LogDao.GetAll();
             Items.Clear();
 
-            Items.AddRange(items);
+            Items.AddRange(items.Reverse());
         }
 
         private void LogSearchBar_OnTextChanged(object sender, TextChangedEventArgs e)

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using Drinks4Us.Views.Main;
 using Drinks4Us.Views.Pages;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -15,11 +16,6 @@ namespace Drinks4Us.Views.Account
 
             EntryEmail.Completed += (s, e) => EntryPassword.Focus();
             EntryPassword.Completed += (s, e) => EntryEmail.Focus();
-        }
-
-        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new RegisterPage());
         }
 
         private async void SignInProcedure(object sender, EventArgs e)
@@ -48,24 +44,39 @@ namespace Drinks4Us.Views.Account
                 return;
             }
 
+            ActivityIndicator.IsRunning = true;
             App.GetInstance().CurrentAppUser = appUser;
-            await DisplayAlert("Login", "Login Success", "Ok");
 
-            await Navigation.PushAsync(new HomePage());
+            appUser.LastLogin = DateTime.Now;
+            await App.GetInstance().Storage.Dao.AppUsersDao.Update(appUser);
+
+            await Navigation.PushAsync(new MainFlyoutPage());
+            ActivityIndicator.IsRunning = false;
+
+            // Clear entry fields
+            EntryEmail.Text = "";
+            EntryPassword.Text = "";
         }
 
         private void ImageButtonShowHidePassword_OnClicked(object sender, EventArgs e)
         {
+            var currentTheme = Application.Current.RequestedTheme;
+
             if (EntryPassword.IsPassword)
             {
                 EntryPassword.IsPassword = false;
-                ImageButtonShowHidePassword.Source = ImageSource.FromFile("visibility.png");
+                ImageButtonShowHidePassword.Source = ImageSource.FromFile(currentTheme == OSAppTheme.Dark ? "outline_visibility_white_24dp.png" : "outline_visibility_black_24dp.png");
             }
             else
             {
                 EntryPassword.IsPassword = true;
-                ImageButtonShowHidePassword.Source = ImageSource.FromFile("visibility_off.png");
+                ImageButtonShowHidePassword.Source = ImageSource.FromFile(currentTheme == OSAppTheme.Dark ? "outline_visibility_off_white_24dp.png" : "outline_visibility_off_black_24dp.png");
             }
+        }
+
+        private async void RegisterButton_OnClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new RegisterPage());
         }
     }
 }

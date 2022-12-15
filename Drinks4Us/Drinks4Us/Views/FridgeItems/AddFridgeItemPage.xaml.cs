@@ -62,8 +62,7 @@ namespace Drinks4Us.Views.FridgeItems
                 {
                     await App.GetInstance().Storage.Dao.LogDao.Add(new Models.Log()
                     {
-                        Id = new Random().Next(),
-                        DateTime = DateTime.Today,
+                        DateTime = DateTime.Now,
                         Message =
                             $"{currentAppUser.Email} heeft {fridgeItem.Quantity}x {fridgeItem.Name} toegevoegd aan {_fridge.Name}"
                     });

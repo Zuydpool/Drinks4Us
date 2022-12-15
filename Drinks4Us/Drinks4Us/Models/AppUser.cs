@@ -1,4 +1,5 @@
-﻿using SQLite;
+﻿using System;
+using SQLite;
 
 namespace Drinks4Us.Models
 {
@@ -17,6 +18,12 @@ namespace Drinks4Us.Models
 
         [Column("profile_picture")]
         public string ProfilePicture { get; set; } = "default_profile.png";
+
+        [Column("register_date")]
+        public DateTime RegisterDate { get; set; }
+
+        [Column("last_login")]
+        public DateTime LastLogin { get; set; }
 
         public override string ToString() => Email;
     }

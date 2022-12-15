@@ -62,7 +62,7 @@
                             TextColor="White" Text="Back"
                             Clicked="BackButton_OnClicked" />-->
                     <Button x:Name="NextReplenisherButton" FontAttributes="Bold" BackgroundColor="#1580D8"
-                            TextColor="White" Text="Random replenisher"
+                            TextColor="White" Text="New replenisher"
                             Clicked="NextReplenisherButton_OnClicked" />
                     <Button x:Name="EditItemButton" FontAttributes="Bold" BackgroundColor="Orange"
                             TextColor="White" Text="Edit"

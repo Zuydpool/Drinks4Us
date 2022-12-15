@@ -64,21 +64,8 @@ namespace Drinks4Us.Views.Main
                     },
                     new MainFlyoutPageFlyoutMenuItem
                     {
-                        Id = 4, Title = "Login", TargetType = typeof(LoginPage), IconSource =
-                            (currentTheme == OSAppTheme.Dark
-                                ? "outline_account_circle_white_24dp.png"
-                                : "outline_account_circle_black_24dp.png")
-                    },
-                    new MainFlyoutPageFlyoutMenuItem
-                    {
-                        Id = 5, Title = "Registeren", TargetType = typeof(RegisterPage), IconSource =
-                            (currentTheme == OSAppTheme.Dark
-                                ? "outline_edit_white_24dp.png"
-                                : "outline_edit_black_24dp.png")
-                    },
-                    new MainFlyoutPageFlyoutMenuItem
-                    {
-                        Id = 6, Title = "Uitloggen", TargetType = typeof(LoginPage), StyleClass = "MenuItemLayoutStyle",
+                        Id = 4, Title = "Uitloggen",
+                        StyleClass = "MenuItemLayoutStyle",
                         CustomAction = Logout,
                         IconSource = (currentTheme == OSAppTheme.Dark
                             ? "outline_logout_white_24dp.png"
@@ -89,7 +76,8 @@ namespace Drinks4Us.Views.Main
 
             private void Logout()
             {
-                Application.Current.Properties["Token"] = "";
+                App.GetInstance().CurrentAppUser = null;
+                //Application.Current.Properties["Token"] = "";
                 //await Navigation.PushAsync(new LoginPage());
             }
 
@@ -99,7 +87,10 @@ namespace Drinks4Us.Views.Main
 
             void OnPropertyChanged([CallerMemberName] string propertyName = "")
             {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+                if (PropertyChanged == null)
+                    return;
+
+                PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
             }
 
             #endregion

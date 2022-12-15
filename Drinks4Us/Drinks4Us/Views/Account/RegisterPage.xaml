@@ -1,33 +1,70 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
+
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Drinks4Us.Views.Account.RegisterPage">
+             x:Class="Drinks4Us.Views.Account.RegisterPage"
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <StackLayout x:Name="RegisterForm" VerticalOptions="StartAndExpand" Margin="0, 20, 0, 0">
-            <StackLayout.Padding>
-                <OnIdiom x:TypeArguments="Thickness">
-                    <OnIdiom.Phone>40,0,40,0</OnIdiom.Phone>
-                    <OnIdiom.Tablet>140,150,140,0</OnIdiom.Tablet>
+        <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout x:Name="RegisterForm" VerticalOptions="StartAndExpand" Margin="0, 20, 0, 0">
+                <StackLayout.Padding>
+                    <OnIdiom x:TypeArguments="Thickness">
+                        <OnIdiom.Phone>40,0,40,0</OnIdiom.Phone>
+                        <OnIdiom.Tablet>140,150,140,0</OnIdiom.Tablet>
 
-                </OnIdiom>
-            </StackLayout.Padding>
+                    </OnIdiom>
+                </StackLayout.Padding>
 
-            <StackLayout>
-                <!--<Label x:Name="LabelEmail" Text="Email" Style="{StaticResource LabelStyle}" />-->
-                <Entry x:Name="EntryEmail" Placeholder="Email" MaxLength="24" Style="{StaticResource EntryStyle}" />
+                <StackLayout Padding="0,50,0, 0">
+                    <Label Text="Welcome to Drinks4Us!" FontSize="Title"
+                           FontAttributes="Bold"
+                           VerticalOptions="StartAndExpand"
+                           HorizontalOptions="CenterAndExpand" />
+                    <Label Text="Register your account" FontSize="Medium"
+                           VerticalOptions="StartAndExpand"
+                           HorizontalOptions="CenterAndExpand" />
+                </StackLayout>
+
+                <StackLayout Padding="0, 50, 0, 0">
+                    <StackLayout>
+                        <!--<Label x:Name="LabelEmail" Text="Email" Style="{StaticResource LabelStyle}" />-->
+                        <Entry x:Name="EntryEmail" Placeholder="Email Address" MaxLength="24"
+                               Style="{StaticResource EntryStyle}" />
+                    </StackLayout>
+                    <Grid Padding="0, 5, 0, 20">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*" />
+                        </Grid.ColumnDefinitions>
+
+                        <!--<Label x:Name="LabelPassword" Text="Password" Style="{StaticResource LabelStyle}" />-->
+                        <Entry x:Name="EntryPassword" Placeholder="Password" IsPassword="True" MaxLength="36"
+                               Style="{StaticResource EntryStyle}" />
+                        <ImageButton x:Name="ImageButtonShowHidePassword" Grid.Row="0" Grid.Column="0"
+                                     VerticalOptions="Center" HorizontalOptions="End"
+                                     Style="{StaticResource ImageButtonShowHidePassword}" WidthRequest="40"
+                                     HeightRequest="40"
+                                     Margin="5,0,5,0" Clicked="ImageButtonShowHidePassword_OnClicked"
+                                     Source="{AppThemeBinding Light=outline_visibility_off_black_24dp.png, Dark=outline_visibility_off_white_24dp.png}" />
+                    </Grid>
+
+                    <Button x:Name="ButtonRegister" Text="Sign Up" Clicked="RegisterProcedure"
+                            CornerRadius="25"
+                            TextColor="White"
+                            Style="{StaticResource GradientBlueButtonStyle}" />
+                    <StackLayout Padding="5" /> <!-- Spacer -->
+                    <Button x:Name="LoginButton" Text="Login Account"
+                            CornerRadius="25"
+                            TextColor="White"
+                            BackgroundColor="#3b5999"
+                            Clicked="LoginButton_OnClicked" />
+                </StackLayout>
             </StackLayout>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1*" />
-                </Grid.ColumnDefinitions>
 
-                <!--<Label x:Name="LabelPassword" Text="Password" Style="{StaticResource LabelStyle}" />-->
-                <Entry x:Name="EntryPassword" Placeholder="Password" IsPassword="True" MaxLength="36" Style="{StaticResource EntryStyle}" />
-                <ImageButton x:Name="ImageButtonShowHidePassword" Grid.Row="0" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="End"
-                             Style="{StaticResource ImageButtonShowHidePassword}" WidthRequest="40" HeightRequest="40"
-                             Margin="5,0,5,0" Clicked="ImageButtonShowHidePassword_OnClicked" Source="visibility_off.png" />
-            </Grid>
-            <Button x:Name="ButtonRegister" Text="Register" Clicked="RegisterProcedure" Style="{StaticResource ButtonStyle}" />
-        </StackLayout>
+            <StackLayout Padding="12"
+                         AbsoluteLayout.LayoutFlags="PositionProportional"
+                         AbsoluteLayout.LayoutBounds="0.5, 0.5, -1, -1">
+                <ActivityIndicator x:Name="ActivityIndicator" IsRunning="False" />
+            </StackLayout>
+        </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

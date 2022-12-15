@@ -19,6 +19,26 @@
                     <Label Grid.Column="1" Text="{Binding Email}" FontAttributes="Bold" HorizontalTextAlignment="End" />
                 </Grid>
 
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Column="0" Text="Register Date" FontAttributes="Bold" HorizontalTextAlignment="Start" />
+                    <Label Grid.Column="1" Text="{Binding RegisterDate}" FontAttributes="Bold" HorizontalTextAlignment="End" />
+                </Grid>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Column="0" Text="Last Login" FontAttributes="Bold" HorizontalTextAlignment="Start" />
+                    <Label Grid.Column="1" Text="{Binding LastLogin}" FontAttributes="Bold" HorizontalTextAlignment="End" />
+                </Grid>
+
                 <StackLayout>
                     <Label Text="Profile Picture" FontAttributes="Bold" HorizontalTextAlignment="Center" />
                     <Image x:Name="ResultImage" Source="{Binding ProfilePicture}" />

@@ -50,6 +50,16 @@ namespace Drinks4Us.Views.FridgeItems
 
             await App.GetInstance().Storage.Dao.FridgeItemsDao.Update(fridgeItem);
             await DisplayAlert("Success", "Successfully updated item!", "Ok!");
+            var currentAppUser = App.GetInstance().CurrentAppUser;
+            if (currentAppUser != null)
+            {
+                await App.GetInstance().Storage.Dao.LogDao.Add(new Models.Log()
+                {
+                    DateTime = DateTime.Now,
+                    Message =
+                        $"{currentAppUser.Email} heeft {fridgeItem.Quantity}x {fridgeItem.Name} toegevoegd aan {fridgeItem.Fridge.Name}"
+                });
+            }
             await Navigation.PopAsync();
         }
 
