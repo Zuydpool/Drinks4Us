@@ -45,10 +45,11 @@ namespace Drinks4Us.Views.Account
             }
             ActivityIndicator.IsRunning = true;
 
+            var hashedPassword = BCrypt.Net.BCrypt.HashPassword(password, App.PasswordHash);
             var appUser = new AppUser
             {
                 Email = email,
-                Password = password,
+                Password = hashedPassword,
                 RegisterDate = DateTime.Now,
                 LastLogin = DateTime.MinValue
             };
