@@ -50,7 +50,8 @@ namespace Drinks4Us.Views.Account
             appUser.LastLogin = DateTime.Now;
             await App.GetInstance().Storage.Dao.AppUsersDao.Update(appUser);
 
-            await Navigation.PushAsync(new MainFlyoutPage());
+            Navigation.InsertPageBefore(new MainFlyoutPage(), this);
+            await Navigation.PopAsync();
             ActivityIndicator.IsRunning = false;
 
             // Clear entry fields

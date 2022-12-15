@@ -1,5 +1,6 @@
 ﻿using System;
 using Drinks4Us.Models;
+using Drinks4Us.Views.Main;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -56,7 +57,8 @@ namespace Drinks4Us.Views.Account
             await App.GetInstance().Storage.Dao.AppUsersDao.Add(appUser);
             await DisplayAlert("Success", "You've successfully registered your account.", "Ok");
 
-            await Navigation.PushAsync(new LoginPage());
+            Navigation.InsertPageBefore(new LoginPage(), this);
+            await Navigation.PopAsync();
             ActivityIndicator.IsRunning = false;
 
             // Clear entry fields
